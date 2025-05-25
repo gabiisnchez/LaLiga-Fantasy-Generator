@@ -119,7 +119,7 @@ public class pagina02Simulacion_Jornada extends JFrame {
     }
 
     /**
-     * Método main para ejecutar la ventana de simulación de jornadas de forma independiente para pruebas.
+     * Metodo main para ejecutar la ventana de simulación de jornadas de forma independiente para pruebas.
      * @param args argumentos de línea de comandos (no usados).
      */
     public static void main(String[] args) {

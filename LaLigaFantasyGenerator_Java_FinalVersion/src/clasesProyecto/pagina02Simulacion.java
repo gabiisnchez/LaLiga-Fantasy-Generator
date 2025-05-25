@@ -10,13 +10,32 @@ import javax.swing.JButton;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Clase que representa la segunda página del simulador de LaLiga Fantasy.
+ * Proporciona botones para acceder a la clasificación, los resultados de la jornada
+ * y para volver al menú principal.
+ *
+ * Esta clase actúa como menú de navegación y requiere una conexión activa a la base de datos.
+ *
+ * @author TuNombre
+ * @version 1.0
+ */
 public class pagina02Simulacion extends JFrame {
 
 	private static final long serialVersionUID = 1L;
+
+	/** Panel principal de la ventana */
 	private JPanel pagina02Simulacion;
+
+	/** Conexión activa a la base de datos MySQL */
 	private ConexionMySQL conexion;
 
-	// Constructor con conexión para evitar null
+	/**
+	 * Constructor de la ventana de simulación.
+	 *
+	 * @param conexion Instancia válida de {@link ConexionMySQL} para acceder a los datos.
+	 * @throws IllegalArgumentException si la conexión es null.
+	 */
 	public pagina02Simulacion(ConexionMySQL conexion) {
 		if (conexion == null) {
 			throw new IllegalArgumentException("La conexión no puede ser null");
@@ -32,6 +51,7 @@ public class pagina02Simulacion extends JFrame {
 		setContentPane(pagina02Simulacion);
 		pagina02Simulacion.setLayout(null);
 
+		// Botón para acceder a la clasificación
 		JButton btnClasificacion = new JButton("CLASIFICACIÓN");
 		btnClasificacion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -43,6 +63,7 @@ public class pagina02Simulacion extends JFrame {
 		btnClasificacion.setBounds(122, 221, 180, 30);
 		pagina02Simulacion.add(btnClasificacion);
 
+		// Botón para acceder a los resultados de la jornada
 		JButton btnResultados = new JButton("RESULTADOS");
 		btnResultados.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -54,16 +75,19 @@ public class pagina02Simulacion extends JFrame {
 		btnResultados.setBounds(122, 180, 180, 30);
 		pagina02Simulacion.add(btnResultados);
 
+		// Imagen del logo de LaLiga
 		JLabel lblFoto_02Simulacion = new JLabel("");
 		lblFoto_02Simulacion.setIcon(new ImageIcon(pagina02Simulacion.class.getResource("/images/LaLiga_EA_Sports_2023_Vertical_Logo.png")));
 		lblFoto_02Simulacion.setBounds(96, 11, 232, 158);
 		pagina02Simulacion.add(lblFoto_02Simulacion);
 
+		// Ajuste de tamaño del logo
 		ImageIcon iconoLaLiga = new ImageIcon(pagina02Simulacion.class.getResource("/images/LaLiga_EA_Sports_2023_Vertical_Logo.png"));
 		Image imagen2 = iconoLaLiga.getImage().getScaledInstance(lblFoto_02Simulacion.getWidth(), lblFoto_02Simulacion.getHeight(), Image.SCALE_SMOOTH);
 		ImageIcon iconoAjustado2 = new ImageIcon(imagen2);
 		lblFoto_02Simulacion.setIcon(iconoAjustado2);
 
+		// Botón para volver a la pantalla principal
 		JButton btnVolver_02Simulacion = new JButton("Volver");
 		btnVolver_02Simulacion.setBounds(10, 11, 83, 23);
 		btnVolver_02Simulacion.addActionListener(new ActionListener() {
@@ -76,7 +100,12 @@ public class pagina02Simulacion extends JFrame {
 		pagina02Simulacion.add(btnVolver_02Simulacion);
 	}
 
-	// --- Metodo MAIN para pruebas individuales ---
+	/**
+	 * Metodo main para probar la ventana de forma independiente.
+	 * Establece una conexión a la base de datos y muestra esta ventana.
+	 *
+	 * @param args Argumentos de línea de comandos (no se utilizan).
+	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(() -> {
 			try {
@@ -89,10 +118,20 @@ public class pagina02Simulacion extends JFrame {
 		});
 	}
 
+	/**
+	 * Obtiene la conexión a la base de datos.
+	 *
+	 * @return Conexión MySQL actual.
+	 */
 	public ConexionMySQL getConexion() {
 		return conexion;
 	}
 
+	/**
+	 * Establece la conexión a la base de datos.
+	 *
+	 * @param conexion Nueva conexión MySQL.
+	 */
 	public void setConexion(ConexionMySQL conexion) {
 		this.conexion = conexion;
 	}

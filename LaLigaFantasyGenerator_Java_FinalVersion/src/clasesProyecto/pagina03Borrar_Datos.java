@@ -89,7 +89,7 @@ public class pagina03Borrar_Datos extends JFrame {
     }
 
     /**
-     * Método principal para pruebas individuales.
+     * Metodo principal para pruebas individuales.
      * Crea la conexión a la base de datos y muestra esta ventana.
      * 
      * @param args argumentos de línea de comandos (no se usan)

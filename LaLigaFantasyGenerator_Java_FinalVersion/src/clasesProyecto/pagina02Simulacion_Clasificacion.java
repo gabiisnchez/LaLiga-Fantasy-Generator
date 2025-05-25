@@ -98,7 +98,7 @@ public class pagina02Simulacion_Clasificacion extends JFrame {
     }
 
     /**
-     * Método principal para ejecutar esta ventana de forma independiente para pruebas.
+     * Metodo principal para ejecutar esta ventana de forma independiente para pruebas.
      * Establece la conexión a la base de datos y abre la ventana de clasificación.
      * 
      * @param args argumentos de línea de comandos (no se usan)
